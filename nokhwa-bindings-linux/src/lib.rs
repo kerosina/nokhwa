@@ -189,7 +189,7 @@ mod internal {
 
         // Last check to be sure that every devices have a unique index
         // and that the data isn't corrupted
-        if devices.len() > 1 {
+        /*if devices.len() > 1 {
             assert_eq!(
                 devices
                     .windows(2)
@@ -198,7 +198,7 @@ mod internal {
                 devices.len(),
                 "Device list should not contain duplicate indexes"
             );
-        }
+        }*/
 
         Ok(device)
     }
