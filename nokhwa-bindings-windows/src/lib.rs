@@ -274,15 +274,15 @@ pub mod wmf {
         }
 
         let mut device_list = vec![];
-
-        unsafe { from_raw_parts(unused_mf_activate.assume_init(), count as usize) }
-            .iter()
-            .for_each(|pointer| {
-                if let Some(imf_activate) = pointer {
-                    device_list.push(imf_activate.clone());
-                }
-            });
-
+        if count > 0 {
+            unsafe { from_raw_parts(unused_mf_activate.assume_init(), count as usize) }
+                .iter()
+                .for_each(|pointer| {
+                    if let Some(imf_activate) = pointer {
+                        device_list.push(imf_activate.clone());
+                    }
+                });
+        }
         Ok(device_list)
     }
 
